@@ -1,0 +1,26 @@
+{
+    "name": "xjchen/yuntongxun",
+    "license": "MIT",
+    "description": "容联云通讯平台模版短信SDK",
+    "keywords": ["laravel", "sms", "yuntongxun", "ronglian", "captcha"],
+    "authors": [
+        {
+            "name": "xjchen",
+            "email": "xchenxujian@126.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*",
+        "gregwar/captcha": "1.*"
+    },
+    "autoload": {
+        "classmap": [
+            "src/Exceptions.php"
+        ],
+        "psr-4": {
+            "Xjchen\\Yuntongxun\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
