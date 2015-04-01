@@ -28,7 +28,10 @@ return [
         'charset' => '1234567890',
         'attempt_limit' => 5,
         'default_template_id' => 1,
-
+        'throttling' => [
+            'enabled' => true,
+            'send_limit' => 1 //每ip每日可发送数量
+        ]
     ],
 
     'ronglian' => [

@@ -30,6 +30,11 @@ class REST
     private $BodyType = "xml";//包体格式，可填值：json 、xml
     private $enableLog; //日志开关。可填值：true、false
 
+    private $lastTo;
+    private $lastData;
+    private $lastTemplateId;
+    private $lastSuccessResult;
+
     public function __construct($ServerIP, $ServerPort, $SoftVersion, $enableLog=true)
     {
         $this->Batch = date("YmdHis");
@@ -37,6 +42,36 @@ class REST
         $this->ServerPort = $ServerPort;
         $this->SoftVersion = $SoftVersion;
         $this->enableLog = $enableLog;
+    }
+
+    public function getLastTo()
+    {
+        return $this->lastTo;
+    }
+
+    public function getLastData()
+    {
+        return $this->lastData;
+    }
+
+    public function getLastTemplateId()
+    {
+        return $this->lastTemplateId;
+    }
+
+    public function getAppId()
+    {
+        return $this->AppId;
+    }
+
+    public function getServerIp()
+    {
+        return $this->ServerIP;
+    }
+
+    public function getLastSuccessResult()
+    {
+        return $this->lastSuccessResult;
     }
 
     /**
@@ -50,7 +85,6 @@ class REST
         $this->AccountSid = $AccountSid;
         $this->AccountToken = $AccountToken;
     }
-
 
     /**
      * 设置应用ID
@@ -175,6 +209,10 @@ class REST
         if($result->statusCode!=0) {
             throw new SMSInterfaceError($result->statusMsg, intval($result->statusCode));
         } else {
+            $this->lastTo = $to;
+            $this->lastData = $datas;
+            $this->lastTemplateId = $tempId;
+            $this->lastSuccessResult = $result;
             return $result->TemplateSMS;
         }
     }

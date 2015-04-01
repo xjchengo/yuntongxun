@@ -2,8 +2,10 @@
 
 use Illuminate\Support\ServiceProvider;
 use Gregwar\Captcha\CaptchaBuilder;
+use Xjchen\Yuntongxun\Models\SMSLog;
 use Xjchen\Yuntongxun\Services\CaptchaService;
 use Xjchen\Yuntongxun\Services\SMSService;
+use Request;
 
 class SMSServiceProvider extends ServiceProvider
 {
@@ -106,11 +108,14 @@ class SMSServiceProvider extends ServiceProvider
                 $app['config']->get('yuntongxun::sms.charset')
             );
             return new SMSService(
+                $app['config']->get('yuntongxun::sms.throttling'),
+                new SMSLog(),
                 $app['xjchen.yuntongxun.sms'],
                 $phraseBuilder,
                 $app['session'],
                 $app['config']->get('yuntongxun::sms.attempt_limit'),
-                $app['config']->get('yuntongxun::sms.expire_seconds')
+                $app['config']->get('yuntongxun::sms.expire_seconds'),
+                Request::getClientIp()
             );
         });
     }
