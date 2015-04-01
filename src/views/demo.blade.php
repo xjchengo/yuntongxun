@@ -7,11 +7,17 @@
     <title>Demo Page</title>
     <link href="{{ asset('packages/xjchen/yuntongxun/assets/bootstrap-3.3.4/css/bootstrap.min.css') }}" rel="stylesheet">
     <style>
+        header,
         main {
             display: block;
             max-width: 480px;
             min-width: 320px;
-            margin: 100px auto;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align:center;
+            margin-bottom: 20px;
         }
 
         #randCodeImg {
@@ -24,6 +30,9 @@
     </style>
 </head>
 <body>
+<header>
+    <h1>容联云通讯模版短信DEMO</h1>
+</header>
 <main class="container-fluid">
     <form>
         <div class="form-group">
