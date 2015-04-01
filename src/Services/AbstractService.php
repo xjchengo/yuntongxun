@@ -99,4 +99,6 @@ abstract class AbstractService
         return $this->errorCode;
     }
 
+    abstract protected function isEqual($a, $a);
+
 }

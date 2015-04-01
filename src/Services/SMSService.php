@@ -28,14 +28,14 @@ class SMSService extends AbstractService implements ServiceInterface
         }
         ksort($data, SORT_NUMERIC);
         $result = $this->sdk->sendTemplateSMS($to, $data, $templateId);
-        self::put([
+        static::put([
             'telephone' => $to,
             'sms' => $data[$codeKey]
         ]);
         return $result;
     }
 
-    public static function isEqual($a, $b)
+    protected function isEqual($a, $b)
     {
         if (($a['telephone'] == $b['telephone']) and ($a['sms'] == $b['sms'])) {
             return true;

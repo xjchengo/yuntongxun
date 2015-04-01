@@ -32,11 +32,11 @@ class CaptchaService extends AbstractService implements ServiceInterface
             $this->captcha->setPhrase($code);
         }
         $image = $this->captcha->build($this->width, $this->height);
-        self::put($image->getPhrase());
+        static::put($image->getPhrase());
         return $image;
     }
 
-    public static function isEqual($a, $b)
+    protected function isEqual($a, $b)
     {
         if ($a == $b) {
             return true;

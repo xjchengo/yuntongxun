@@ -14,6 +14,4 @@ interface ServiceInterface
 
     public function getErrorCode();
 
-    public static function isEqual($a, $b);
-
 }
