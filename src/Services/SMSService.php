@@ -3,6 +3,7 @@
 use Xjchen\Yuntongxun\PhraseBuilder;
 use Xjchen\Yuntongxun\REST;
 use Illuminate\Session\SessionManager;
+use Xjchen\Yuntongxun\Models\SMSLog;
 
 class SMSService extends AbstractService implements ServiceInterface
 {

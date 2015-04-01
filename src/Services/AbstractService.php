@@ -89,8 +89,8 @@ abstract class AbstractService
             $result = false;
         } else {
             $result = true;
+            static::forget(); //使用成功才forget
         }
-        static::forget();
         return $result;
     }
 

@@ -27,7 +27,8 @@ return [
         'length' => '4',
         'charset' => '1234567890',
         'attempt_limit' => 5,
-        'default_template_id' => 1
+        'default_template_id' => 1,
+
     ],
 
     'ronglian' => [
